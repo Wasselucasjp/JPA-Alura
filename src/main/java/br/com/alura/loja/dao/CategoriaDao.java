@@ -1,2 +1,19 @@
-package br.com.alura.loja.dao;public class CategoriaDao {
+package br.com.alura.loja.dao;
+
+import br.com.alura.loja.model.Categoria;
+
+import javax.persistence.EntityManager;
+
+public class CategoriaDao {
+    private EntityManager entityManager;
+
+    public CategoriaDao(EntityManager entityManager){
+        this.entityManager = entityManager;
+    }
+
+    public void cadastrar(Categoria categoria){
+        this.entityManager.persist(categoria);
+    }
+
+    public void atualizar(Categoria categoria){this.entityManager.merge(categoria);}
 }
