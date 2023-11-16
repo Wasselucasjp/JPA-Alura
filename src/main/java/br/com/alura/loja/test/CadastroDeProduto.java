@@ -18,6 +18,9 @@ public class CadastroDeProduto {
 
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("loja");
         EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
         entityManager.persist(celular);
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
 }
