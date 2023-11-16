@@ -1,6 +1,8 @@
 package br.com.alura.loja.test;
 
+import br.com.alura.loja.dao.ProdutoDao;
 import br.com.alura.loja.model.Produto;
+import br.com.alura.loja.util.JPAUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,8 +18,8 @@ public class CadastroDeProduto {
 
         System.out.println(celular);
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("loja");
-        EntityManager entityManager = factory.createEntityManager();
+        EntityManager entityManager = JPAUtil.getEntityManager();
+        ProdutoDao dao = new ProdutoDao(entityManager);
         entityManager.getTransaction().begin();
         entityManager.persist(celular);
         entityManager.getTransaction().commit();
