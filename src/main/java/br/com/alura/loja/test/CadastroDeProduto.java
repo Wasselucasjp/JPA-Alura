@@ -2,6 +2,9 @@ package br.com.alura.loja.test;
 
 import br.com.alura.loja.model.Produto;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.math.BigDecimal;
 
 public class CadastroDeProduto {
@@ -13,6 +16,8 @@ public class CadastroDeProduto {
 
         System.out.println(celular);
 
-
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("loja");
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.persist(celular);
     }
 }
