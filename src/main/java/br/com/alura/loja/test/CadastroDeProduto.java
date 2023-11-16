@@ -18,7 +18,7 @@ public class CadastroDeProduto {
 
         System.out.println(celular);
 
-        EntityManager entityManager = JPAUtil.getEntityManager();
+        EntityManager entityManager  =  JPAUtil.getEntityManager();
         ProdutoDao dao = new ProdutoDao(entityManager);
         entityManager.getTransaction().begin();
         entityManager.persist(celular);
